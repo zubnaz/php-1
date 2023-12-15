@@ -1,4 +1,4 @@
-function takePhoto(){
+function takePhoto(photoName=""){
     let fileInput = document.getElementById('photo');
     let file = fileInput.files[0];
     if(file!=undefined){
@@ -13,13 +13,17 @@ function takePhoto(){
                 document.getElementById('imagePreview').innerHTML = xhr.responseText;
             }
         };
-
         xhr.open('POST', 'upload.php', true);
         xhr.send(formData);
     }
     else{
         let photo = document.getElementById('imagePreview');
-        photo.innerHTML="";
+        if(photoName=="")
+            photo.innerHTML="";
+        else{
+            photo.innerHTML = `<img src='\\images\\${photoName}' width='150'/>`
+        }
+
     }
 
 
