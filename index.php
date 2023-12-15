@@ -55,7 +55,6 @@
         <?php
         }else{
             echo "<h3>Database is clear</h3>";
-            //test
         }
         ?>
 
